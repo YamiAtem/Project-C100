@@ -1,15 +1,33 @@
-class Car(object):
-    def __init__(self, color, model, top_speed):
-        self.color = color
-        self.model = model
-        self.top_speed = top_speed
+class Atm:
+    def __init__(self, cardnumber, pin):
+        self.cardnumber = cardnumber
+        self.pin = pin
 
-    def start(self):
-        print("the car has started")
+    def check_balance(self):
+        print("Your balance is 50000")
 
-    def stop(self):
-        print("the car has stopped")
+    def withdrawl(self, amount):
+        new_amount = 50000 - amount
+        print("you have withdrawn amount " + str(amount) + ". Your remaining balance is " + str(new_amount))
 
 
-car = Car("red", "tesla", "200 million")
-print(car.color)
+def main():
+    card_number = input("insert your card number:- ")
+    pin_number = input("enter your pin number:- ")
+
+    new_user = Atm(card_number, pin_number)
+
+    print("Choose your activity ")
+    print("1.Balance Enquiry\n2.Withdrawal")
+    activity = int(input("enter activity number :- "))
+
+    if activity == 1:
+        new_user.check_balance()
+    elif activity == 2:
+        amount = int(input("enter the amount:- "))
+        new_user.withdrawl(amount)
+    else:
+        print("enter a valid number")
+
+
+main()
